@@ -3,27 +3,15 @@
 #include <cmath>
 #include <cctype>
 #include <iomanip>
+#include <cstdlib>
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+#include <vector>
+#include <bits/stdc++.h>
 
 // FOR NUMBERS
 using namespace std;
-
-
-void shuffle(int arr[])
-{
-  unsigned seed = 0;
-  random_shuffle(arr, arr + 16);
-}
-
-void generate_nums(int arr[], int allnum[]) // generateing 16 random but unique numbers
-{
-  for (int i = 0; i < 16; i++)
-  {
-    arr[i] = allnum[i];
-  }
-}
 
 void board(int array[]) // printing the board
 {
@@ -78,14 +66,19 @@ int main()
 {
 
   int array[16];
-  int all_the_numbers[100];
-  for (int i = 0; i < 100; i++)
+  int hundred_numbers[100]; // storing all the numbers in an array
+
+  for (int i = 0; i < 100; i++) // adding values
   {
-    all_the_numbers[i] = i;
+    hundred_numbers[i];
+  }
+  shuffle(begin(hundred_numbers), end(hundred_numbers)); // shuffling the all the numbers
+
+  for (int i = 0; i < 16; i++)
+  {
+    array[i] = hundred_numbers[i]; // assigning the numbers
   }
 
-  shuffle(all_the_numbers); // shuffling the arrays;
-  generate_nums(array, all_the_numbers);
   int sorted_arr[16];
 
   copy(begin(array), end(array), begin(sorted_arr)); // copying the array
@@ -95,7 +88,7 @@ int main()
   cout << "\n";
   // board(sorted_arr);
 
-  while (compare_arrays(array, sorted_arr) == false) // fix this
+  while (compare_arrays(array, sorted_arr) == false)
   {
     int from, to;
     cout << "Which number do you want to replace  ";
@@ -106,6 +99,8 @@ int main()
     swap(from, to, array);
     board(array);
   }
+  cout << "\n";
+  cout << "you have won the game!";
 
   return 0;
 }
