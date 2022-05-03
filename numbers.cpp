@@ -6,15 +6,22 @@
 #include <fstream>
 #include <sstream>
 #include <algorithm>
+
 // FOR NUMBERS
 using namespace std;
 
-void generate_nums(int arr[]) // generate random 16 numbers
-{
 
+void shuffle(int arr[])
+{
+  unsigned seed = 0;
+  random_shuffle(arr, arr + 16);
+}
+
+void generate_nums(int arr[], int allnum[]) // generateing 16 random but unique numbers
+{
   for (int i = 0; i < 16; i++)
   {
-    arr[i] = 0 + rand() % 100;
+    arr[i] = allnum[i];
   }
 }
 
@@ -59,20 +66,26 @@ void swap(int from, int to, int arr[]) // swapping the numbers in the board
   for (int i = 0; i < 16; i++) // finding the index of the two numbers
   {
     if (arr[i] == from)
-      temp1 == i;
+      temp1 = i;
     if (arr[i] == to)
-      temp2 == i;
+      temp2 = i;
   }
-  arr[temp1]=to;
-  arr[temp2]=from;
+  arr[temp1] = to;
+  arr[temp2] = from;
 }
 
 int main()
 {
 
-  srand(time(NULL));
   int array[16];
-  generate_nums(array);
+  int all_the_numbers[100];
+  for (int i = 0; i < 100; i++)
+  {
+    all_the_numbers[i] = i;
+  }
+
+  shuffle(all_the_numbers); // shuffling the arrays;
+  generate_nums(array, all_the_numbers);
   int sorted_arr[16];
 
   copy(begin(array), end(array), begin(sorted_arr)); // copying the array
@@ -82,16 +95,16 @@ int main()
   cout << "\n";
   // board(sorted_arr);
 
-  while (compare_arrays(array, sorted_arr) == false)//fix this
+  while (compare_arrays(array, sorted_arr) == false) // fix this
   {
     int from, to;
-    cout << "Which number do you want to replace";
+    cout << "Which number do you want to replace  ";
     cin >> from;
-    cout << "Which number do you want to replace with";
+    cout << "Which number do you want to replace with  ";
     cin >> to;
-    
-    swap(from, to, array);
 
+    swap(from, to, array);
+    board(array);
   }
 
   return 0;
