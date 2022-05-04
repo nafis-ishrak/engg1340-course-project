@@ -8,7 +8,7 @@
 #include <sstream>
 #include <algorithm>
 #include <vector>
-#include <bits/stdc++.h>
+#include <ctime>
 
 // FOR NUMBERS
 using namespace std;
@@ -19,32 +19,36 @@ void board(int array[]) // printing the board
   {
     if (i == 7)
     {
-      cout << " ";
+      cout << "";
     }
-    cout << array[i] << " |";
+    if (array[i]/10!=0)
+      cout << array[i] << "|";
+    else
+      cout << array[i] << " |";
+    
+
     if (i == 3 || i == 7 || i == 11 || i == 15)
     {
 
-      cout << "\n";
+      cout << "\n\n";
     }
   }
 }
 
 bool compare_arrays(int arr1[], int arr2[]) // comparing the current board with sorted board
 {
-  bool flag = true;
-
+  bool flag;
   for (int i = 0; i < 16; i++)
   {
     if (arr1[i] != arr2[i])
     {
-      return false;
+      flag=false;
     }
+    else
+      flag= true;
   }
-  if (flag == true)
-  {
-    return true;
-  }
+ 
+  return flag;
 }
 
 void swap(int from, int to, int arr[]) // swapping the numbers in the board
@@ -61,46 +65,65 @@ void swap(int from, int to, int arr[]) // swapping the numbers in the board
   arr[temp1] = to;
   arr[temp2] = from;
 }
+void shuffle(int arr[], int length)
+{
+
+  int tmp = 0;
+  int rndm_inx = 0;
+
+  for (int i = 0; i < length; i++)
+  {
+    rndm_inx = rand() % length;
+    tmp = arr[i];
+    arr[i] = arr[rndm_inx];
+    arr[rndm_inx] = tmp;
+  }
+}
 
 int main()
 {
+
+  cout << "*** WELLCOME TO THE NUMBER ARRANGING GAME ***\n*** HERE YOU NEED TO ARRANGE THE BOARD IN SUCH A WAY THAT ALL NUMBERS ARE IN ASCENDING ORDER. ***\n     GOOD LUCK!!!     \n\n";
+
+  srand(time(NULL)); // so that there are different random numbers in every attempt of the game
 
   int array[16];
   int hundred_numbers[100]; // storing all the numbers in an array
 
   for (int i = 0; i < 100; i++) // adding values
   {
-    hundred_numbers[i];
+    hundred_numbers[i] = i;
   }
-  shuffle(begin(hundred_numbers), end(hundred_numbers)); // shuffling the all the numbers
+  shuffle(hundred_numbers, 100); // shuffling the all the numbers
 
   for (int i = 0; i < 16; i++)
   {
-    array[i] = hundred_numbers[i]; // assigning the numbers
+    array[i] = hundred_numbers[i]; // storing the first 16 random numbers to the array
   }
 
   int sorted_arr[16];
 
   copy(begin(array), end(array), begin(sorted_arr)); // copying the array
-  sort(sorted_arr, sorted_arr + 16);
+  sort(sorted_arr, sorted_arr + 16);                 // sorting the array in ascending order
 
   board(array); // print out board
   cout << "\n";
-  // board(sorted_arr);
 
-  while (compare_arrays(array, sorted_arr) == false)
+  while (compare_arrays(array, sorted_arr) == false) // checks if the game is over or not
   {
     int from, to;
     cout << "Which number do you want to replace  ";
     cin >> from;
     cout << "Which number do you want to replace with  ";
     cin >> to;
+    cout<<"\n";
 
     swap(from, to, array);
     board(array);
   }
   cout << "\n";
-  cout << "you have won the game!";
+  cout << "you have won the game!\n";
+  system("open https://tinyurl.com/3bcz98xn");
 
   return 0;
 }
