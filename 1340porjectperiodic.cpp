@@ -15,7 +15,7 @@ struct element
   string symbol;
   int group;
   int period;
-  int atomicWeight;
+  int AtomicNumber;
 };
 
 element G1[7] = {{"H ", 1, 1, 1}, {"Li", 1, 2, 3}, {"Na", 1, 3, 11}, {"K ", 1, 4, 19}, {"Rb", 1, 5, 37}, {"Cs", 1, 6, 55}, {"Fr", 1, 7, 87}};

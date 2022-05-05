@@ -13,7 +13,7 @@
 // FOR NUMBERS
 using namespace std;
 
-void board(int array[]) // printing the board
+void PrintBoard(int array[]) // printing the board
 {
   for (int i = 0; i < 16; i++)
   {
@@ -21,11 +21,10 @@ void board(int array[]) // printing the board
     {
       cout << "";
     }
-    if (array[i]/10!=0)
+    if (array[i] / 10 != 0)
       cout << array[i] << "|";
     else
       cout << array[i] << " |";
-    
 
     if (i == 3 || i == 7 || i == 11 || i == 15)
     {
@@ -42,12 +41,26 @@ bool compare_arrays(int arr1[], int arr2[]) // comparing the current board with 
   {
     if (arr1[i] != arr2[i])
     {
-      flag=false;
+      flag = false; // returns false if there is a mismatch
     }
     else
-      flag= true;
+      flag = true;
   }
- 
+
+  return flag;
+}
+
+bool NumberPresent(int arr[], int num)
+{
+  bool flag = false;
+  for (int i = 0; i < 16; i++)
+  {
+    if (arr[i] == num)
+    {
+      flag = true;
+      break;
+    }
+  }
   return flag;
 }
 
@@ -83,7 +96,7 @@ void shuffle(int arr[], int length)
 int main()
 {
 
-  cout << "*** WELLCOME TO THE NUMBER ARRANGING GAME ***\n*** HERE YOU NEED TO ARRANGE THE BOARD IN SUCH A WAY THAT ALL NUMBERS ARE IN ASCENDING ORDER. ***\n     GOOD LUCK!!!     \n\n";
+  cout << "\n*** WELLCOME TO THE NUMBER ARRANGING GAME ***\n*** HERE YOU NEED TO ARRANGE THE BOARD IN SUCH A WAY THAT ALL NUMBERS ARE IN ASCENDING ORDER STARTING FROM THE FIRST ROW (LEFT TO RIGHT). ***\n     GOOD LUCK!!!     \n\n";
 
   srand(time(NULL)); // so that there are different random numbers in every attempt of the game
 
@@ -106,20 +119,42 @@ int main()
   copy(begin(array), end(array), begin(sorted_arr)); // copying the array
   sort(sorted_arr, sorted_arr + 16);                 // sorting the array in ascending order
 
-  board(array); // print out board
+  PrintBoard(array); // print out board
   cout << "\n";
 
   while (compare_arrays(array, sorted_arr) == false) // checks if the game is over or not
   {
     int from, to;
     cout << "Which number do you want to replace  ";
-    cin >> from;
+    cin >> from; // NEED TO GIVE A CHECK IF THERE IS A NUMBER
+    if (NumberPresent(array, from) == false)
+    {
+      while (NumberPresent(array, from) == false)
+      {
+        cout<<"\n";
+        cout << "Please enter a valid number from the board!!! \n\n";
+        cout << "Which number do you want to replace  ";
+        cin >> from;
+
+      }
+    }
     cout << "Which number do you want to replace with  ";
     cin >> to;
-    cout<<"\n";
+    if (NumberPresent(array, to) == false)
+    {
+      while (NumberPresent(array, to) == false)
+      {
+        cout<<"\n";
+        cout << "Please enter a valid number from the board!!! \n\n";
+        cout << "Which number do you want to replace with ";
+        cin >> to;
 
-    swap(from, to, array);
-    board(array);
+      }
+    }
+
+    cout << "\n";
+    swap(from, to, array); // swapping the values
+    PrintBoard(array);
   }
   cout << "\n";
   cout << "you have won the game!\n";

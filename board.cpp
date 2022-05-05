@@ -17,7 +17,7 @@ void generate_nums(int arr[]) // generate random 16 numbers
   }
 }
 
-void board(int array[]) // printing the board
+void PrintBoard(int array[]) // printing the board
 {
   for (int i = 0; i < 16; i++)
   {
@@ -77,7 +77,7 @@ int main()
   copy(begin(array), end(array), begin(sorted_arr)); // copying the array
   sort(sorted_arr, sorted_arr + 16);
 
-  board(array); // print out board
+  PrintBoard(array); // print out board
   cout << "\n";
   // board(sorted_arr);
   bool sorted=true;
@@ -93,7 +93,7 @@ int main()
     swap(from, to, array);
     if(compare_arrays(array, sorted_arr) == false){
       sorted=true;
-      board(array);
+      PrintBoard(array);
     }
       
     

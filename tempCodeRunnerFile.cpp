@@ -26,7 +26,7 @@ void generate_nums(int arr[], int allnum[]) // generateing 16 random but unique 
   }
 }
 
-void board(int array[]) // printing the board
+void PrintBoard(int array[]) // printing the board
 {
   for (int i = 0; i < 16; i++)
   {
@@ -92,7 +92,7 @@ int main()
   copy(begin(array), end(array), begin(sorted_arr)); // copying the array
   sort(sorted_arr, sorted_arr + 16);
 
-  board(array); // print out board
+  PrintBoard(array); // print out board
   cout << "\n";
   // board(sorted_arr);
 
@@ -105,7 +105,7 @@ int main()
     cin >> to;
 
     swap(from, to, array);
-    board(array);
+    PrintBoard(array);
   }
 
   return 0;
