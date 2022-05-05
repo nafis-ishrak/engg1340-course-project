@@ -83,16 +83,52 @@ void shuffling_the_groups(int groups[4])
     }
   }
 }
-void sort_groups(element group)// this function will sort those 4 elements in the group
-{//according to atomic number for that group
 
-
-
-}
 
 //make swap function
+void swap(int group_num, string from, string to, int length)
+{
+  string temp=to;
+  switch (group_num)
+    {
+    case (1):
+      for (int i = 0; i < 7; i++)
+      {
+        if (G1[i].symbol==from)
+        {
+          //change location .. ahnaf do this part
+        }
+        
+      }
+      
+      
+      break;
+    case (2):
+      shuffle(G2, 6);
+      break;
+    case (3):
+      shuffle(G3, 6);
+      break;
+    case (4):
+      shuffle(G4, 6);
+      break;
+    case (15):
+      shuffle(G5, 6);
+      break;
+    case (6):
+      shuffle(G6, 6);
+      break;
+    case (7):
+      shuffle(G7, 6);
+      break;
+    case (8):
+      shuffle(G1, 7);
+      break;
+    }
+  
+  
 
-
+}
 
 
 int main()
