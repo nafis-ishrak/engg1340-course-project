@@ -1,0 +1,24 @@
+For the numbers game, a board will be printed out in the format 
+
+20|45|53|96|
+
+6 |7 |29|44|
+
+99|5 |51|71|
+
+27|18|32|1 |
+
+
+Here we need to organise the board in such a way that it is in ascending order starting from the first row (left to right).
+The user will be asked two things. One is to input which number user wants to replace and another is which number to replace with. For example, the first number in this board should be 1 so the user's first input should be 20 as this is the number that should be changed and the number that needs to be replaced in 1. In this manner, the user will be asked to give an input until the board is fully organised.
+
+For our periodic table game, the user will be asked to arrange every group in the periodic table starting from group 1 until group8 (except the transition elements).
+
+ Na 
+ Cs 
+ K 
+ H 
+ Li 
+ Rb  
+
+Here we need to replace the elements in such a way that it matches the periodic table. The user will be asked to do for each group and the game will end when all groups have been sorted.
