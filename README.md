@@ -32,8 +32,7 @@ Coding requirements-
 
 
 
-	1. Generation of Random Game Sets or E
-	vents - Each time, user will be asked to replace one number/element with other number/element. If he chooses invalid numbers/elements, the program will ask the user again for another input. This will continue until the game is finished.
+	1. Generation of Random Game Sets or Events - Each time, user will be asked to replace one number/element with other number/element. If he chooses invalid numbers/elements, the program will ask the user again for another input. This will continue until the game is finished.
 	
 	2. Data Structures for Storing Game Status - We used arrays and structs to store the user inputs and also to compare user inputs with the arranged array of elements and numbers. 
 	
