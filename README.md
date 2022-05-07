@@ -1,10 +1,11 @@
 # engg1340-course-project
 
-Team members- 1. Ishrak, Syed Nafis
-		 UID- 3035946083
-		 
-		 
-	      2. Farhan, Md Ahnaf
+Team members-
+		
+		
+		1. Ishrak, Syed Nafis
+		 UID- 3035946083 
+	     	2. Farhan, Md Ahnaf
 		 UID- 3035856874
 		 
 		 
@@ -14,17 +15,16 @@ Team members- 1. Ishrak, Syed Nafis
 Description of the game-
 
 
-	This is a puzzle where 15 random numbers are put in a tile and the user has to rearrange the 15 tiles in ascending order.
+	This is a puzzle game where user will be asked to play between numbers and periodic table. 
+	If user chooses to play with numbers, 16 random numbers will be showed in a board and the user will have to arrange the board in ascending order. User will be asked to replace numbers for arranging the board. When the board is arranged, the user will win the game.
+	If user chooses to play with the periodic table, a shuffled board from group 1 will be shown. The user will have to arrange the group elements accordingly and after he is done, all the elements of that group will be shown with proper information e.g group, period, symbol and atomic number. After arranging group 1, group 2 will be shown and the same procedure will have to be maintained. Accordingly, the user will have to arrange all the groups from 1 to 8 and will be rewarded only after he is done arranging all the groups.
 	
 	
 	
-Game rules- 
-
-
-
-	1. User has to input a range of 15 numbers.
-	2. The program will take the range as inputs and make the puzzle putting the 15 random numbers in between the range in a tile.
-	3. User has to move the tile up, down, right or left to rearrange the tiles in ascending order.
+To compile and run the code-
+			
+	make game
+	./game
 	
 	
 	
@@ -32,13 +32,14 @@ Coding requirements-
 
 
 
-	1. Random numbers will be generated.
-	2. We can store the numbers of the tile in 1D and 2D arrays. Integer variables will be used to take input of range, changing tiles etc. 
-	3. Taking inputs from the user.
-	4. i. range of 15 numbers.
-	   ii. what number user wants to replace with what number.
-	   iii. outputs the 15 numbers with the tile
-	   iv. outputs the updated tile with the user input until it is rearranged in ascending order.
-	   v. other statements such as invalid number, Congratulations!, please input the range, please input the number you want to change etc.
-	5. Board, replacing the numbers, playing the game in main function, out initial plan is to make 3 program files.
+	1. Generation of Random Game Sets or E
+	vents - Each time, user will be asked to replace one number/element with other number/element. If he chooses invalid numbers/elements, the program will ask the user again for another input. This will continue until the game is finished.
+	
+	2. Data Structures for Storing Game Status - We used arrays and structs to store the user inputs and also to compare user inputs with the arranged array of elements and numbers. 
+	
+	3. Dynamic Memory Management - We used the dynamic array for storing the numbers that was input by the user.
+	
+	4. File input/output - We are taking user inputs to store the inputs in an array. After each turn, the stored values will be printed as outputs.
+	
+	5. Program Codes in Multiple Files - We used 3 cpp files. One for the numbers, one for periodic table and one for the main function. We then compiled all the 3 files together.
 
